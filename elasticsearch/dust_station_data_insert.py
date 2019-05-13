@@ -5,7 +5,7 @@ import urllib
 import json
 import time
 
-SERVICE_KEY = '0JEF2I1CqBU8dI7FB52ZGzJzck9rwheKrb%2Bmcg%2BsvchO%2Bz%2FQL4rwrlB%2FBOQcE%2BCr7bcTLBWyQir9dI9uDO5cXA%3D%3D&'
+SERVICE_KEY = ''
 
 # Apis
 # 측정소 목록 조회
