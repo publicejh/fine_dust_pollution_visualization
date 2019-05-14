@@ -100,7 +100,7 @@ def insert_dust_measure_station():
 
         if int(result['parm']['numOfRows']) < result['totalCount']:
             print('Raise num of rows!!!; params: ' + result['parm'] + ', total count: ' + result['totalCount'])
-            break
+            continue
 
         for elem in result['list']:
             station = elem['stationName']
@@ -146,14 +146,20 @@ def insert_dust_measure_station():
 
 
 # 전체 data 조회
-def search_all():
+def search_all_dust_measure_station(size=10):
     res = es.search(
         index='dust_measure_station',
         body={
+            'size': size,
             'query': {'match_all': {}}
         }
     )
-    print(json.dumps(res))
+    print("Got %d Hits:" % res['hits']['total'])
+    # for hit in res['hits']['hits']:
+    #     print("%(province)s %(station)s: %(province_location)s" % hit["_source"])
+    # print(json.dumps(res, ensure_ascii=False, indent=4))
+
+    return res['hits']['hits']
 
 
 # value 조회
