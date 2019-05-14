@@ -11,7 +11,7 @@ page_no = 1
 station_name = "창원"
 search_condition = "DAILY"
 addr_station = "경남"
-service_key = "GnCb2K4E90gPxpQUxL34l5h0c19IPd3WiUWyejNMa9V%2BExlJyQdjb%2F5Ou33dsfhCJMosfvQ7tqCAkB2dhySBBA%3D%3D"
+service_key = 
 base_url = "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnStatsSvc/getMsrstnAcctoLastDcsnDnsty"
 
 # index 생성
