@@ -128,6 +128,40 @@ def insert_dust_raw(num_of_rows):
     return {'no_data_cnt': no_data_cnt, 'no_station_cnt': no_station_cnt}
 
 
+def get_province_pm10_avg(province, data_time):
+    res = es.search(
+        index='dust_raw',
+        body={
+            'query': {
+                'bool': {
+                    'must': [
+                        {
+                            'match': {
+                                'province': province
+                            }
+                        },
+                        {
+                            'match': {
+                                'data_time': data_time
+                            }
+                        }
+                    ]
+                }
+            },
+            'aggs': {
+                'province_pm10_avg': {
+                    'avg': {
+                        'field': 'pm10_avg'
+                    }
+                }
+            }
+        }
+    )
+    # print("Got %d Hits:" % res['hits']['total'])
+
+    return res['aggregations']['province_pm10_avg']['value']
+
+
 # create_dust_raw()
 # res = insert_dust_raw(5000)
 # print(res)
